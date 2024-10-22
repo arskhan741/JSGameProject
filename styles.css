@@ -1,0 +1,213 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #87cefa, #4682b4);
+  font-family: Arial, sans-serif;
+  perspective: 1000px;
+}
+
+.box {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  cursor: pointer;
+  scale: 125%;
+}
+
+.front,
+.back,
+.left,
+.right,
+.top,
+.bottom {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #8b4513;
+  border: 2px solid #654321;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.front {
+  background: #d2b48c;
+  transform: translateZ(75px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+}
+
+.back {
+  background: #deb887;
+  transform: rotateY(180deg) translateZ(75px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  opacity: 0; /* Hidden initially */
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(75px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(75px);
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(75px);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(75px);
+}
+
+.box.open {
+  transform: rotateX(0deg) rotateY(180deg);
+}
+
+.box.open .back {
+  opacity: 1; /* Show the back when opened */
+}
+
+#reward_detail {
+  color: #4682b4;
+  word-wrap: break-word; /* Break long words if necessary */
+  white-space: normal; /* Allow text to wrap */
+  width: fit-content;
+  scale: 75%;
+}
+
+.container {
+  position: relative;
+}
+
+#continue_Btn {
+  background: #e3ffcc;
+  border-radius: 30px;
+  max-width: 500px;
+  /* padding: 15px; */
+  margin-left: 50px; /* Move right */
+  margin-top: 50px; /* Move down */
+  scale: 120%;
+}
+
+#continue_Btn:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  opacity: 0;
+  /* transition: opacity 0.5s; Optional: adds a fade-out effect */
+  pointer-events: none; /* Prevents interaction with the element */
+}
+
+/* GIFT BOX ANIMTAION */
+
+.app {
+  font-family: sans-serif;
+  text-align: center;
+  position: relative; /* Added for positioning child elements */
+  height: 100vh; /* Full height for centering */
+}
+
+.img-container {
+  position: absolute; /* Absolute positioning to center */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-100%, -79%); /* Center alignment */
+}
+
+.box1 {
+  background: transparent;
+  border: 0;
+  cursor: pointer; /* Uncommented to make it clickable */
+  outline: none;
+}
+
+.kuku {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 0;
+  z-index: -1;
+}
+
+.lid {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 5.8em;
+  transition: transform 1s; /* Smooth transition for rotation */
+}
+
+.jump {
+  animation: jump 1s infinite alternate;
+}
+
+.rotated {
+  transform: rotate(145deg) translate(-70%, -170px); /* Lid remains rotated */
+}
+
+@keyframes wiggle {
+  10%,
+  90% {
+    transform: translate(-50%) translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate(-50%) translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate(-50%) translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate(-50%) translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes jump {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: 20em;
+  }
+}
+
+#continueSection {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, 150%); /* Center alignment */
+  font-size: 150%;
+  text-align: center;
+}
+
+#nextBtn {
+  scale: 150%;
+  transform: translate(0, 50%); /* Center alignment */
+  background: #deccff;
+  border-radius: 15px;
+}
+
+#nextBtn:hover {
+  cursor: pointer;
+}
+
+#rewardDetails {
+  position: absolute;
+  text-align: left;
+  transform: translate(0%, -750%); /* Center alignment */
+  font-weight: bold;
+  font-size: 150%;
+}
