@@ -23,6 +23,7 @@ export class GameOutCome {
 function showTextResponse(response) {
   const textBox = document.getElementById("reward_detail");
   const lootBox = document.getElementById("loot");
+
   lootBox.textContent = "";
   textBox.textContent = response;
   lootBox.appendChild(textBox);
