@@ -180,24 +180,32 @@ body {
     bottom: 0;
   }
   to {
-    bottom: 15em;
+    bottom: 20em;
   }
 }
-
 #continueSection {
+  align-items: center;
+  display: flexbox;
+  background-color: red;
+}
+
+#continueText {
   position: absolute;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, 150%); /* Center alignment */
+  top: 60%; /* Center vertically */
+  left: 25%; /* Center horizontally */
   font-size: 150%;
-  text-align: center;
+  text-align: left;
+  align-items: center;
 }
 
 #nextBtn {
   scale: 150%;
-  transform: translate(0, 50%); /* Center alignment */
   background: #deccff;
   border-radius: 15px;
+  align-items: center;
+  position: relative;
+  left: 45%;
+  top: 20px;
 }
 
 #nextBtn:hover {
@@ -207,15 +215,18 @@ body {
 #rewardDetails {
   position: absolute;
   text-align: left;
-  transform: translate(0%, -750%); /* Center alignment */
+  top: 25%;
   font-weight: bold;
   font-size: 150%;
+  top: 20%;
 }
 
-/* Media Queries for Mobile Screens */
-@media (max-width: 768px) {
-  #continueSection {
-    font-size: 150%; /* Further reduce text size */
-    transform: translate(-50%, 100%); /* More spacing */
-  }
+#rewardName {
+  position: relative;
+  /* background: red; */
+  padding: inherit;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 60px;
+  top: -80px;
 }

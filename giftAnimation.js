@@ -26,13 +26,23 @@ export const animateGiftBox = (response) => {
     // Show Reward section
     document.getElementById("rewardDetails").classList.remove("hidden");
 
-    // Show Reward section
-    document.getElementById("continueText").textContent =
-      response.reward_detail;
-
     // Update won reward name
     document.getElementById(
       "rewardName"
     ).textContent = `You Won: ${response.reward_name}`;
+
+    // Show Reward section
+    const continueTextDiv = document.getElementById("continueText");
+
+    // Clear previous text while keeping the button
+    continueTextDiv.childNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        continueTextDiv.removeChild(node);
+      }
+    });
+
+    // Create a new text node with the reward detail
+    const newText = document.createTextNode(response.reward_detail);
+    continueTextDiv.insertBefore(newText, continueTextDiv.firstChild);
   }, 2000); // Adjust timing to fit your animation length
 };

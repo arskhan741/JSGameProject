@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>3D Box Opening Animation</title>
-    <script></script>
   </head>
   <body>
     <div class="container" id="initial_box">
@@ -23,24 +22,28 @@
       <button id="continue_Btn" class="hidden">Continue</button>
     </div>
 
-    <div class="app">
-      <div class="img-container" id="gift-box">
-        <img class="kuku" src="images/jump-character.png" alt="kuku" />
-        <button class="box1" id="animateButton">
-          <img src="images/box.png" alt="box" />
-        </button>
-        <img class="lid" id="boxLid" src="images/box-lid.png" alt="box-lid" />
+    <div id="giftSection">
+      <div id="rewardDetails" class="hidden">
+        <div id="rewardName"></div>
       </div>
-      <div id="confetti"></div>
-    </div>
-
-    <div id="continueSection">
-      <div id="continueText">Click on next Button to follow</div>
-      <button id="nextBtn">Continue</button>
-    </div>
-
-    <div id="rewardDetails" class="hidden">
-      <div id="rewardName"></div>
+      <br />
+      <div class="app">
+        <div class="img-container" id="gift-box">
+          <img class="kuku" src="images/jump-character.png" alt="kuku" />
+          <button class="box1" id="animateButton">
+            <img src="images/box.png" alt="box" />
+          </button>
+          <img class="lid" id="boxLid" src="images/box-lid.png" alt="box-lid" />
+        </div>
+        <div id="confetti"></div>
+      </div>
+      <br />
+      <div id="continueSection">
+        <div id="continueText">
+          Click 'continuesssss' for instructions on how to claim your Holiday
+          <br /><button id="nextBtn">Continue</button>
+        </div>
+      </div>
     </div>
 
     <script type="module" src="index.js"></script>
