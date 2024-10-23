@@ -108,7 +108,11 @@ body {
   pointer-events: none; /* Prevents interaction with the element */
 }
 
-/* GIFT BOX ANIMTAION */
+#loot {
+  text-align: center;
+}
+
+/* ============================================GIFT BOX ANIMTAION============================================ */
 
 .app {
   font-family: sans-serif;
