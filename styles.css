@@ -108,11 +108,7 @@ body {
   pointer-events: none; /* Prevents interaction with the element */
 }
 
-#loot {
-  text-align: center;
-}
-
-/* ============================================GIFT BOX ANIMTAION============================================ */
+/* GIFT BOX ANIMTAION */
 
 .app {
   font-family: sans-serif;
@@ -184,7 +180,7 @@ body {
     bottom: 0;
   }
   to {
-    bottom: 20em;
+    bottom: 15em;
   }
 }
 
@@ -214,4 +210,12 @@ body {
   transform: translate(0%, -750%); /* Center alignment */
   font-weight: bold;
   font-size: 150%;
+}
+
+/* Media Queries for Mobile Screens */
+@media (max-width: 768px) {
+  #continueSection {
+    font-size: 150%; /* Further reduce text size */
+    transform: translate(-50%, 100%); /* More spacing */
+  }
 }
