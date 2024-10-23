@@ -13,8 +13,15 @@ export const animateGiftBox = (response) => {
   if (isAnimating) return;
 
   isAnimating = true;
-  boxLid.classList.add("rotated");
-  kuku.classList.add("jump");
+
+  // Reset the lid to its closed position is closed initially
+  boxLid.classList.remove("rotated");
+
+  // Set a slight timeout before starting the animation for a better effect
+  setTimeout(() => {
+    boxLid.classList.toggle("rotated");
+    kuku.classList.add("jump");
+  }, 50); // Small delay to ensure reset happens before animation starts
 
   // Reset the animation state after a timeout
   setTimeout(() => {

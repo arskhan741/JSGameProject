@@ -5,8 +5,9 @@ body {
   height: 100vh;
   font-family: Arial, sans-serif;
   perspective: 1000px;
-  perspective-origin: center; /* Add this for better control */
+  perspective-origin: center;
   background: linear-gradient(to bottom, #87cefa, #4682b4);
+  overflow-y: hidden;
 }
 
 .box {
@@ -32,6 +33,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 15px;
+}
+
+#continue_Btn {
+  cursor: pointer;
 }
 
 .front,
@@ -66,8 +71,8 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 24px;
-  opacity: 0; /* Hidden initially */
-  transform-origin: center; /* Ensure rotation happens around the center */
+  opacity: 0;
+  transform-origin: center;
 }
 
 .left {
@@ -91,43 +96,44 @@ body {
 }
 
 .box.open .back {
-  opacity: 1; /* Show the back when opened */
+  opacity: 1;
 }
 
 #reward_detail {
   color: #4682b4;
-  word-wrap: break-word; /* Break long words if necessary */
-  white-space: normal; /* Allow text to wrap */
+  word-wrap: break-word;
+  white-space: normal;
   width: fit-content;
   scale: 75%;
 }
 
 .hidden {
   opacity: 0;
-  /* transition: opacity 0.5s; Optional: adds a fade-out effect */
-  pointer-events: none; /* Prevents interaction with the element */
+
+  pointer-events: none;
+  display: none;
 }
 
-/* GIFT BOX ANIMTAION */
+/* =================Gift box animation Start================= */
 
 .app {
   font-family: sans-serif;
   text-align: center;
-  position: relative; /* Added for positioning child elements */
-  height: 100vh; /* Full height for centering */
+  position: relative;
+  height: 100vh;
 }
 
 .img-container {
-  position: absolute; /* Absolute positioning to center */
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-100%, -79%); /* Center alignment */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -79%);
 }
 
 .box1 {
   background: transparent;
   border: 0;
-  cursor: pointer; /* Uncommented to make it clickable */
+  cursor: pointer;
   outline: none;
 }
 
@@ -144,7 +150,7 @@ body {
   left: 50%;
   transform: translate(-50%);
   bottom: 5.8em;
-  transition: transform 1s; /* Smooth transition for rotation */
+  transition: transform 2s;
 }
 
 .jump {
@@ -152,7 +158,7 @@ body {
 }
 
 .rotated {
-  transform: rotate(145deg) translate(-70%, -170px); /* Lid remains rotated */
+  transform: rotate(145deg) translate(-70%, -170px);
 }
 
 @keyframes wiggle {
@@ -184,24 +190,55 @@ body {
   }
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-.giftContainer {
+@keyframes lidJump {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  30% {
+    transform: rotate(10deg) translateY(-10px);
+  }
+  60% {
+    transform: rotate(-5deg) translateY(5px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
 }
 
-#rewardDetails {
+/* =================Gift box animation END================= */
+
+.giftContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 400px;
+  max-width: 400px;
 }
 
 #rewardName {
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
+  margin-top: 8%;
 }
 
-#continueSection {
+#gift-box {
+  margin-left: 80px;
+  margin-top: 10%;
 }
 
 #continueText {
+  text-align: center;
+  font-size: x-large;
+  margin-top: -15%;
 }
 
 #nextBtn {
+  scale: 150%;
+  background: #deccff;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin-top: 8%;
 }
 
 #nextBtn:hover {
