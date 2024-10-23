@@ -3,19 +3,35 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(to bottom, #87cefa, #4682b4);
   font-family: Arial, sans-serif;
   perspective: 1000px;
+  perspective-origin: center; /* Add this for better control */
+  background: linear-gradient(to bottom, #87cefa, #4682b4);
 }
 
 .box {
-  position: relative;
   width: 150px;
   height: 150px;
   transform-style: preserve-3d;
   transition: transform 0.6s ease;
   cursor: pointer;
-  scale: 125%;
+  transform: translate(-50%, -50%);
+  /* Centering */
+  position: absolute;
+  top: 45%;
+  left: 50%;
+}
+
+#continue_Btn {
+  position: absolute;
+  scale: 1.2;
+  background: #e3ffcc;
+  border-radius: 30px;
+  /* Positioning */
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
 }
 
 .front,
@@ -31,6 +47,7 @@ body {
   border: 2px solid #654321;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  scale: 1.25;
 }
 
 .front {
@@ -50,26 +67,27 @@ body {
   align-items: center;
   font-size: 24px;
   opacity: 0; /* Hidden initially */
+  transform-origin: center; /* Ensure rotation happens around the center */
 }
 
 .left {
-  transform: rotateY(-90deg) translateZ(75px);
-}
-
-.right {
   transform: rotateY(90deg) translateZ(75px);
 }
 
-.top {
-  transform: rotateX(90deg) translateZ(75px);
+.right {
+  transform: rotateY(-90deg) translateZ(75px);
 }
 
-.bottom {
+.top {
   transform: rotateX(-90deg) translateZ(75px);
 }
 
+.bottom {
+  transform: rotateX(90deg) translateZ(75px);
+}
+
 .box.open {
-  transform: rotateX(0deg) rotateY(180deg);
+  transform: rotateX(0deg) rotateY(180deg) translate(50%, -50%);
 }
 
 .box.open .back {
@@ -82,24 +100,6 @@ body {
   white-space: normal; /* Allow text to wrap */
   width: fit-content;
   scale: 75%;
-}
-
-.container {
-  position: relative;
-}
-
-#continue_Btn {
-  background: #e3ffcc;
-  border-radius: 30px;
-  max-width: 500px;
-  /* padding: 15px; */
-  margin-left: 50px; /* Move right */
-  margin-top: 50px; /* Move down */
-  scale: 120%;
-}
-
-#continue_Btn:hover {
-  cursor: pointer;
 }
 
 .hidden {
@@ -183,50 +183,27 @@ body {
     bottom: 20em;
   }
 }
+
+/*---------------------------------------------------------------------------------------*/
+
+.giftContainer {
+}
+
+#rewardDetails {
+}
+
+#rewardName {
+}
+
 #continueSection {
-  align-items: center;
-  display: flexbox;
-  background-color: red;
 }
 
 #continueText {
-  position: absolute;
-  top: 60%; /* Center vertically */
-  left: 25%; /* Center horizontally */
-  font-size: 150%;
-  text-align: left;
-  align-items: center;
 }
 
 #nextBtn {
-  scale: 150%;
-  background: #deccff;
-  border-radius: 15px;
-  align-items: center;
-  position: relative;
-  left: 45%;
-  top: 20px;
 }
 
 #nextBtn:hover {
   cursor: pointer;
-}
-
-#rewardDetails {
-  position: absolute;
-  text-align: left;
-  top: 25%;
-  font-weight: bold;
-  font-size: 150%;
-  top: 20%;
-}
-
-#rewardName {
-  position: relative;
-  /* background: red; */
-  padding: inherit;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 60px;
-  top: -80px;
 }

@@ -3,8 +3,9 @@ export const animateGiftBox = (response) => {
   const kuku = document.querySelector(".kuku");
   const confettiContainer = document.getElementById("confetti");
 
-  // Show the gift box initially if it was hidden
+  // Unhide the Gift Box
   document.getElementById("gift-box").classList.remove("hidden");
+  document.getElementById("giftSection").classList.remove("hidden");
 
   let isAnimating = false;
 
