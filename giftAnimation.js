@@ -20,14 +20,19 @@ export const animateGiftBox = (response) => {
     kuku.classList.remove("jump"); // Keep the lid open
     isAnimating = false; // Allow further calls to animateGiftBox
 
-    //Show Continue section
+    // Show Continue section
     document.getElementById("continueSection").classList.remove("hidden");
 
-    //Show Reward section
+    // Show Reward section
     document.getElementById("rewardDetails").classList.remove("hidden");
 
-    //Show Reward section
+    // Show Reward section
     document.getElementById("continueText").textContent =
       response.reward_detail;
+
+    // Update won reward name
+    document.getElementById(
+      "rewardName"
+    ).textContent = `You Won: ${response.reward_name}`;
   }, 2000); // Adjust timing to fit your animation length
 };

@@ -33,15 +33,17 @@ async function getData(token) {
 
     return await response.json();
   } catch (error) {
-    console.error("Error:", error); // More detailed logging
+    console.error("Error:", error);
     return error.message;
   }
 }
 
 const handleClick = async () => {
-  box.removeEventListener("click", handleClick); // Remove the event listener
+  // Remove the event listener
+  box.removeEventListener("click", handleClick);
 
-  const token = "22aa99d8c8aba6fd3866766f33b6d8146e3892ec"; // Replace with dynamic retrieval if needed
+  // Replace with dynamic retrieval if needed
+  const token = "22aa99d8c8aba6fd3866766f33b6d8146e3892ec";
 
   box.classList.toggle("open");
 
@@ -49,9 +51,8 @@ const handleClick = async () => {
 
   console.log(response);
 
-  // console.log(`response = ${response.reward_name}`);
-
   gameOutCome.ShowResultText(response);
 };
 
-box.addEventListener("click", handleClick); // Add the event listener
+// Add the event listener
+box.addEventListener("click", handleClick);
