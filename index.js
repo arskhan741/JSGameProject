@@ -66,6 +66,7 @@ const handleClick = async () => {
 // Add the event listener
 box.addEventListener("click", handleClick);
 
+// Use this function to add the call to Continue Button
 export const continueBtnHandler = (callback) => {
   document.getElementById("nextBtn").addEventListener("click", callback);
 };

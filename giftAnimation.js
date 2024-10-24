@@ -55,8 +55,9 @@ export const animateGiftBox = (response) => {
     const newText = document.createTextNode(response.reward_detail);
     continueTextDiv.insertBefore(newText, continueTextDiv.firstChild);
 
+    // Replace the method here for continue button
     continueBtnHandler(() => {
-      console.log(`test`);
+      console.log(`Continue Button Test`);
     });
   }, 2000); // Adjust timing to fit your animation length
 };
