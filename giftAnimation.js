@@ -1,3 +1,5 @@
+import { continueBtnHandler } from "./index.js"; // Adjust the path if needed
+
 export const animateGiftBox = (response) => {
   const boxLid = document.getElementById("boxLid");
   const kuku = document.querySelector(".kuku");
@@ -52,5 +54,9 @@ export const animateGiftBox = (response) => {
     // Create a new text node with the reward detail
     const newText = document.createTextNode(response.reward_detail);
     continueTextDiv.insertBefore(newText, continueTextDiv.firstChild);
+
+    continueBtnHandler(() => {
+      console.log(`test`);
+    });
   }, 2000); // Adjust timing to fit your animation length
 };

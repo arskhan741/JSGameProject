@@ -20,12 +20,12 @@ export class GameOutCome {
 }
 
 // Show text based on API Response
-function showTextResponse(response) {
+function showTextResponse(msg) {
   const textBox = document.getElementById("reward_detail");
   const lootBox = document.getElementById("loot");
 
   lootBox.textContent = "";
-  textBox.textContent = response;
+  textBox.textContent = msg;
   lootBox.appendChild(textBox);
 }
 

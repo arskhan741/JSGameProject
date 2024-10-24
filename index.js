@@ -65,3 +65,7 @@ const handleClick = async () => {
 
 // Add the event listener
 box.addEventListener("click", handleClick);
+
+export const continueBtnHandler = (callback) => {
+  document.getElementById("nextBtn").addEventListener("click", callback);
+};

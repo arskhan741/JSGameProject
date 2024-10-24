@@ -10,6 +10,16 @@ body {
   overflow-y: hidden;
 }
 
+#plsWait {
+  color: #4682b4;
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: left;
+  font-size: large;
+  /* background: red; */
+  width: 120px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
