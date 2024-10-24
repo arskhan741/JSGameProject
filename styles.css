@@ -10,6 +10,12 @@ body {
   overflow-y: hidden;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+}
+
 .box {
   width: 150px;
   height: 150px;
@@ -24,14 +30,13 @@ body {
 }
 
 #continue_Btn {
-  position: absolute;
+  position: relative;
   scale: 1.2;
   background: #e3ffcc;
-  border-radius: 30px;
   /* Positioning */
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* top: 85%; */
+  /* left: 50%; */
+  transform: translate(0, 400%);
   border-radius: 15px;
 }
 
