@@ -25,13 +25,6 @@ body {
   flex-direction: column;
 }
 
-#btnHolder {
-  /* background: red; */
-  /* width: 200%; */
-  top: 100px;
-  position: relative;
-}
-
 .box {
   width: 150px;
   height: 150px;
@@ -45,14 +38,19 @@ body {
   left: 50%;
 }
 
+#btnHolder {
+  top: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* background: red; */
+}
+
 #continue_Btn {
+  transform: scaleX(-1);
   position: relative;
   scale: 1.2;
   background: #e3ffcc;
-  /* Positioning */
-  /* top: 85%; */
-  /* left: 50%; */
-  /* transform: translate(0, 400%); */
   border-radius: 15px;
 }
 
@@ -129,10 +127,7 @@ body {
 }
 
 .hidden {
-  opacity: 0;
-
-  pointer-events: none;
-  display: none;
+  display: none !important;
 }
 
 /* =================Gift box animation Start================= */
@@ -263,5 +258,30 @@ body {
 }
 
 #nextBtn:hover {
+  cursor: pointer;
+}
+
+/* =================New Requirment Initialize Game================= */
+
+.Game {
+  display: flex;
+  justify-content: center;
+}
+
+#startGameBtn {
+  scale: 150%;
+  background: #deccff;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+#startGameBtnHolder {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* background-color: red; */
+}
+
+#startGameBtn:hover {
   cursor: pointer;
 }
