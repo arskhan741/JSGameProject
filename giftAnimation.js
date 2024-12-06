@@ -11,7 +11,7 @@ export const animateGiftBox = (response) => {
 
   let isAnimating = false;
 
-  // Prevent multiple animations from running simultaneously
+  // Prevent multiple animations from running simultaneously.
   if (isAnimating) return;
 
   isAnimating = true;
