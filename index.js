@@ -12,14 +12,15 @@ document.getElementById("startGameBtn").addEventListener("click", function () {
     "Congragulations You Won! 😃",
     "Better Luck Next Time! 😟"
   );
-
-  // Hide the start button and unhide the game
-  gameDiv.classList.remove("hidden");
-  document.getElementById("startGameBtnHolder").classList.add("hidden");
 });
 
 // function used to initialize game
 function InitiliazeGame(waitingText, winText, loseText) {
+  // Hide the start button and unhide the game
+  gameDiv.classList.remove("hidden");
+  document.getElementById("startGameBtnHolder").classList.add("hidden");
+
+  // create a new instance of gameOutCome Class
   const gameOutCome = new GameOutCome(winText, loseText);
 
   document.getElementById("plsWait").textContent = waitingText;
@@ -59,28 +60,29 @@ function InitiliazeGame(waitingText, winText, loseText) {
     // Send the response on game intialization
     gameOutCome.ShowResultText(response);
   }
+}
 
-  async function getData(token, requestData) {
-    const url = `https://mp-staging.co.uk/master/api/rewards/api/rewards/${requestData.userIdentifier}/${requestData.promoId}/${requestData.fixtureId}/22aa99d8c8aba6fd3866766f33b6d8146e3892ec`;
+// function to get API response regarding game out come.
+async function getData(token, requestData) {
+  const url = `https://mp-staging.co.uk/master/api/rewards/api/rewards/${requestData.userIdentifier}/${requestData.promoId}/${requestData.fixtureId}/22aa99d8c8aba6fd3866766f33b6d8146e3892ec`;
 
-    try {
-      const response = await fetch(url, {
-        method: "PUT",
-        headers: {
-          Userid: 1,
-          Apikey: "EUvvT*7_9J!VS4-99mE%$K6x$Qk",
-        },
-      });
+  try {
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        Userid: 1,
+        Apikey: "EUvvT*7_9J!VS4-99mE%$K6x$Qk",
+      },
+    });
 
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-      }
-
-      return await response.json();
-    } catch (error) {
-      console.error("Error:", error);
-      return error.message;
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
     }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error:", error);
+    return error.message;
   }
 }
 
