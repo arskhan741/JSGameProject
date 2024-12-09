@@ -1,21 +1,21 @@
 // Index.js
 import { GameInitializer } from "./game.js";
 
-// Add event listener to start game button
-document.getElementById("startGameBtn").addEventListener("click", function () {
-  // Create a event listener for continue button, (Dummy event for demonstration only)
-  const continueButtonEvent = () => {
-    console.log("Test continue button");
-  };
+// Create a event listener for continue button, (Dummy event for demonstration only)
+const continueButtonEvent = () => {
+  console.log("Test continue button");
+};
 
-  // Create a new instance of game initializer
-  const gameIntializer = new GameInitializer(
-    "🎉 Looting Please Wait . . .!",
-    "Congragulations You Won! 😃",
-    "Better Luck Next Time! 😟",
-    document.getElementById("GameContainer"),
-    continueButtonEvent
-  );
+// Get the div in which you want to initialize game
+const gameDiv = document.getElementById("GameContainer");
 
-  gameIntializer.initialize();
-});
+// Create a new instance of the GameInitializer with required parameters
+const gameIntializer = new GameInitializer(
+  "🎉 Looting Please Wait . . .!", // Loading message displayed during game load
+  "Congratulations You Won! 😃", // Text displayed when the user wins
+  "Better Luck Next Time! 😟", // Text displayed when the user loses
+  "GameContainer", // The div element where the game will render
+  continueButtonEvent // Event listener for the continue button, pass your custom event function here
+);
+
+gameIntializer.initialize();

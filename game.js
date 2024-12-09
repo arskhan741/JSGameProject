@@ -1,6 +1,6 @@
 // game.js
 
-import { getAPIResponse } from "./response";
+import { getAPIResponse } from "./APIresponse.js";
 
 //==================================== Game Initialization ======================================//
 
@@ -9,22 +9,40 @@ export class GameInitializer {
     waitingText,
     winText,
     loseText,
-    gameDivElement,
+    gameDivElementName,
     gameContinueEvent
   ) {
     this.waitingText = waitingText;
     this.winText = winText;
     this.loseText = loseText;
-    this.gameDivElement = gameDivElement;
+    this.gameDivElementName = gameDivElementName;
     this.gameContinueEvent = gameContinueEvent;
+
     this.gameOutCome = new GameOutCome(winText, loseText, gameContinueEvent);
     this.box = null;
     this.responseCalledOnce = false;
+    this.gameDivElement = null;
   }
 
   initialize() {
+    // Find the Game div element
+    this.gameDivElement = document.getElementById(this.gameDivElementName);
+
+    if (!this.gameDivElement) {
+      // If element with ID "this.gameDivElementName" is not found, try to get it by class
+      this.gameDivElement = document.getElementsByClassName(
+        this.gameDivElementName
+      )[0];
+    }
+
+    if (!this.gameDivElement) {
+      // If still null, log an error
+      console.error("Game div not found. Please check the name.");
+      return;
+    }
+
     // Hide the start button and unhide the game
-    document.getElementById("startGameBtnHolder").classList.add("hidden");
+    document.getElementById("startGameBtnHolder")?.classList.add("hidden");
 
     // Add HTML and styles dynamically
     this.addHTMLToDivElement();
@@ -44,9 +62,8 @@ export class GameInitializer {
     document.getElementById("continueSection").classList.add("hidden");
 
     // Add Event listener to Claim rewards/Next button
-    document
-      .getElementById("nextBtn")
-      .addEventListener("click", this.gameContinueEvent);
+    const nextBtn = this.gameDivElement.querySelector("#nextBtn");
+    nextBtn.addEventListener("click", this.gameContinueEvent);
   }
 
   addHTMLToDivElement() {
@@ -103,17 +120,7 @@ export class GameInitializer {
   addStyles() {
     const style = document.createElement("style");
     style.textContent = `
-          body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    perspective: 1000px;
-    perspective-origin: center;
-    background: linear-gradient(to bottom, #87cefa, #4682b4);
-    overflow-y: hidden;
-  }
+          
 
   #plsWait {
     color: #4682b4;
@@ -307,7 +314,7 @@ export class GameInitializer {
       bottom: 0;
     }
     to {
-      bottom: 20em;
+      bottom: 10em;
     }
   }
 
@@ -406,7 +413,7 @@ export class GameInitializer {
     // Replace with dynamic retrieval if needed
     this.box.classList.toggle("open");
 
-    const response = await getAPIResponse(token, requestData);
+    const response = await getAPIResponse();
 
     // Add a delay for better UX
     await new Promise((resolve) => setTimeout(resolve, 1000));

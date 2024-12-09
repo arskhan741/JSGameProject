@@ -1,6 +1,8 @@
 //response.js
 
 export const getAPIResponse = async function getData() {
+  console.log("getData");
+
   //Send the required token
   const token = "22aa99d8c8aba6fd3866766f33b6d8146e3892ec";
 
