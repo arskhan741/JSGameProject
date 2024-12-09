@@ -1,5 +1,4 @@
 // Index.js
-import { GameOutCome } from "./game.js";
 
 const gameDiv = document.getElementById("gameHolder");
 // Hide the game initially
@@ -87,6 +86,8 @@ async function getData(token, requestData) {
 }
 
 // Use this function to add the call to Continue Button
-export const continueBtnHandler = (callback) => {
+const continueBtnHandler = (callback) => {
   document.getElementById("nextBtn").addEventListener("click", callback);
 };
+
+//================================Index.js END================================

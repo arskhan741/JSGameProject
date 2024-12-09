@@ -1,6 +1,6 @@
-import { continueBtnHandler } from "./index.js";
+// giftAnimation.js
 
-export const animateGiftBox = (response) => {
+const animateGiftBox = (response) => {
   const boxLid = document.getElementById("boxLid");
   const kuku = document.querySelector(".kuku");
   const confettiContainer = document.getElementById("confetti");
@@ -61,3 +61,4 @@ export const animateGiftBox = (response) => {
     });
   }, 2000); // Adjust timing to fit your animation length
 };
+//================================giftAnimation.js END================================

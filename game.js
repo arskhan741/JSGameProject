@@ -1,8 +1,6 @@
 // game.js
 
-import { animateGiftBox } from "./giftAnimation.js";
-
-export class GameOutCome {
+class GameOutCome {
   constructor(wintext, loseText) {
     this.wintext = wintext;
     this.loseText = loseText;
@@ -56,3 +54,4 @@ export class GameOutCome {
     }
   }
 }
+//================================game.js END================================
