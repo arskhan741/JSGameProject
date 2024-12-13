@@ -1,26 +1,37 @@
-//response.js
+//APIresponse.js
+
+// Parameters required for API
+let Token = "";
+let Url = "";
+let UserId = 0;
+let ApiKey = "";
+
+export function initializeApiParameters(token, url, userId, apiKey) {
+  Token = token;
+  Url = url;
+  UserId = userId;
+  ApiKey = apiKey;
+
+  console.log(`Token =${Token}
+    Url = ${Url}
+    UserId = ${UserId}
+    ApiKey = ${ApiKey}`);
+}
 
 export const getAPIResponse = async function getData() {
   console.log("getData");
 
   //Send the required token
-  const token = "22aa99d8c8aba6fd3866766f33b6d8146e3892ec";
+  const token = Token;
 
-  // Send the required API Parameters
-  const requestData = {
-    userIdentifier: "abc123",
-    promoId: 613,
-    fixtureId: 14486,
-  };
-
-  const url = `https://mp-staging.co.uk/master/api/rewards/api/rewards/${requestData.userIdentifier}/${requestData.promoId}/${requestData.fixtureId}/${token}`;
+  const url = Url;
 
   try {
     const response = await fetch(url, {
       method: "PUT",
       headers: {
-        Userid: 1,
-        Apikey: "EUvvT*7_9J!VS4-99mE%$K6x$Qk",
+        Userid: UserId,
+        Apikey: ApiKey,
       },
     });
 
